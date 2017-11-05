@@ -1,11 +1,11 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   attr_accessor :password
 
-  EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
+  EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
-  validates :email, :presence => true, :uniqueness => true, :with => EMAIL_REGEX
-  validates :password, :confirmation => true #password_confirmation attr
+  validates :email, :presence => true, :uniqueness => true, format: { :with => EMAIL_REGEX }
+  validates :password, :confirmation => true, :on => :create #password_confirmation attr
   validates_length_of :password, :in => 6..20, :on => :create
 
   before_save :encrypt_password
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   def clear_password
     self.password = nil
+    self.password_confirmation = nil
   end
 
   def self.authenticate(username_or_email="", login_password="")

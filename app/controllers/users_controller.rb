@@ -1,28 +1,37 @@
 class UsersController < ApplicationController
-  before_filter :save_login_state, :only => [:new, :create]
+  before_action :save_login_state, :only => [:new, :create]
+  before_action :authenticate_user, :only => [:profile, :settings]
+
+  # GET /users/new
   def new
     @user = User.new
   end
 
+  # POST /users/create
   def create
-    @user = User.new(params[:user])
+    @user = User.create(user_params)
+
     if @user.save
-      flash[:notice] = "You signed up successfully"
-      flash[:color] = "valid"
+      flash[:notice] = "You signed up successfully. Now you can login."
+      redirect_to(:controller => 'sessions', :action => 'login')
     else
       flash[:notice] = "Form is invalid"
-      flash[:color] = "invalid"
+      render "new"
     end
-    render "new"
   end
 
+  # GET /users/:id/profile
   def profile
+    render "profile"
   end
 
-  def setting
-  end
-  
-  def home
+  # GET /users/:id/settings
+  def settings
+    render "settings"
   end
 
+  private
+    def user_params
+      params.require(:user).permit(:username, :password, :password_confirmation, :email, :name)
+    end
 end

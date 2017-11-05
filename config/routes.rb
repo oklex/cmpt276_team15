@@ -1,3 +1,20 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root :to => "sessions#login"
+
+  get 'sessions/login', :to => "sessions#login"
+  post 'sessions/login', :to => "sessions#login_attempt"
+  get 'sessions/logout', :to => "sessions#logout"
+
+  resource :users do
+    collection do
+      get :new
+      post :create
+    end
+    member do
+      get :home
+      get :profile
+      get :settings
+    end
+  end
 end
