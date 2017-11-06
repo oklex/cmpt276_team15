@@ -9,5 +9,15 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.boolean :admin, :default => false
       t.timestamps
     end
+
+    # Create an admin user
+    password = "AdminP@ssw0rd"
+    admin_user = User.create(
+      :name => 'Admin user',
+      :username => 'admin',
+      :email => 'adminemail@adminemail.com',
+      :password => password, :password_confirmation => password,
+      :admin => true)
+    admin_user.save
   end
 end
