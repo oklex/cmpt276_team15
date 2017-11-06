@@ -13,14 +13,14 @@ class SessionsController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       # TODO: Redirect to game#home when game_controller is implemented
-      redirect_to(:controller => 'users', :action => 'profile')
+      redirect_to(:controller => 'users', :action => 'profile', :id => session[:user_id])
     else
       flash[:notice] = "Invalid username or password."
       render "login"
     end
   end
 
-  # POST /sessions/logout
+  # GET /sessions/logout
   def logout
     session[:user_id] = nil
     redirect_to :action => 'login'

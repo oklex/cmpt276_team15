@@ -18,7 +18,7 @@ development:
   pool: 5
   host: localhost
   database: cmpt276_team15
-  password:
+  passsword:
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -32,7 +32,7 @@ test:
   encoding: unicode
   pool: 5
   host: localhost
-  database: cmpt276_team15
+  database: cmpt276_team15_test
   password:
 
 production:

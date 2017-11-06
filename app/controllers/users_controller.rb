@@ -22,7 +22,11 @@ class UsersController < ApplicationController
 
   # GET /users/:id/profile
   def profile
-    render "profile"
+    if (session[:user_id].to_s != params[:id])
+      redirect_to(:controller => 'users', :action => 'profile', :id => session[:user_id])
+    else
+      render "profile"
+    end
   end
 
   # GET /users/:id/settings
