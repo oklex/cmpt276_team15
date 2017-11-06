@@ -6,11 +6,7 @@ Rails.application.routes.draw do
   post 'sessions/login', :to => 'sessions#login_attempt'
   get 'sessions/logout', :to => 'sessions#logout'
 
-  resources :users do
-    collection do
-      get 'new', :to => 'users#new'
-      post 'create', :to => 'users#create'
-    end
+  resources :users, only: [:new, :create] do
     member do
       get :profile
       get :settings
