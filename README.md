@@ -3,6 +3,7 @@
 * Members: Alexander, Tyrell, Thu, Aleksandar, Darren
 
 ## Iteration 1
+In this iteration, we have created basic user login that shows different view for regular users and admins. We have also included some unit and integration tests for the features detailed in the user stories. We have decided to develop the game separately, due to distinct natures between the tasks, and link together in the end. The game is written with Unity and placed in a different Git repository.
 ### User Stories
 The Login page has Signup option at the bottom so that user can choose to either login or signup. When signup, users need to provide username, name, password, password confirmation and email. If username or email is already existed, it will redirect back to signup page with corresponding error message. If the password and password confirmation are not matched, an error message will be display as well. After signup, user will be redirected to login page. User can login with either username or email and they must provide their password. If the user typed in incorrect email/username or password, it will redirect to Login page with corresponding error message. Once login succeeds,  they should be redirected to games home page according to our interface design in the proposal. For this iteration, it will just show user profile page. This will be modified later when the game is more ready. When a user login, he/she can only view his/her profile and cannot go to other users’ profiles by modifying the URL. When users logout, they will be redirected to login page.
 
