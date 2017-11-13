@@ -1,0 +1,89 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+
+.loginInput{
+	width: 100%;
+	border: 0px;
+	height: 25px;
+	background-color: rgba(178,178,178, 1);
+	border-radius: 5px;
+	padding: 2 15 2 15;
+	color: rgba(77, 77, 77, 1);
+}
+.loginButton{
+	background-color: rgba(77, 77, 77, 1);
+	color: rgba(178,178,178, 1);
+	border: 0;
+	border-radius: 5px;
+	height:25px;
+	padding: 2 15 2 15;
+}
+.loginButton:hover{
+	background-color: rgba(178, 178, 178, 1);
+	color: rgba(77,77,77, 1);
+}
+.loginButton:active{
+	background-color: rgba(77, 77, 77, 1);
+	color: rgba(178,178,178, 1);
+}
+#loginWindowLinks{
+	font-size:12px;
+	text-align: right;
+}
+#loginSubmit{
+	height: 24px;
+	margin-top: 15px;
+	width: 100%;
+}
+#loginForm{
+	margin:0px;
+	height:100px;
+	width:100px;
+}
+#loginUser{
+	padding-bottom:20px;
+}
+#loginPassword{
+	padding-bottom:10px;
+}
+#loginInnerDiv{
+	height:210px;
+	width:210px;
+	background-color:rgba(255, 255, 255, 1);
+	margin:25px;
+	color:rgba(77, 77, 77, 1);
+	padding:20px;
+	line-height: 20px;
+	border-radius: 10px;
+}
+#loginContent{
+	height:300px;
+	width:300px;
+	background-color: rgba(77, 77, 77, 1);
+	float: left;
+	border-radius: 10px;
+}
+#loginMiddlingDiv{
+	width: -moz-calc(50% - 150px);
+	width: -webkit-calc(50% - 150px);
+	width: -o-calc(50% - 150px);
+	width: calc(50% - 150px);
+	height:300px;
+	float: left;
+}
+#loginCenteringDiv{
+	height: -moz-calc(50% - 150px);
+	height: -webkit-calc(50% - 150px);
+	height: -o-calc(50% - 150px);
+	height: calc(50% - 150px);
+	width:100%;
+	float:left;
+}
+#loginBody{
+	height: 100%;
+	width: 100%;
+	font-family: arial;
+	background-color: rgba(0,0,0,0.3);
+}
