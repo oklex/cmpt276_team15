@@ -11,48 +11,6 @@
         <%= content_tag :div, value, class: "flash #{key}" %>
       <% end %>
     </div>
-    <div id="signupForm">
-      <%= form_with(model: @user, local: true, :id => 'signupForm') do |form| %>
-        <% if @user.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this course from being saved:</h2>
-
-            <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <div id="signupInnerDiv">
-					<div id="signupHeader" class="signupElement">
-						<img id="signupHeaderImage">
-					</div>
-
-          <div id="signupUser" class="signupElement">
-            <%= form.label :username %>
-            <%= form.text_field :username, id: "signupUserInput", class: "signupInput" %>
-          </div>
-          <div id="signupEmail" class="signupElement">
-            <%= form.label :email %>
-            <%= form.text_field :email, id: "signupEmailInput", class: "signupInput" %>
-          </div>
-          <div class="field">
-            <%= form.label :name %>
-            <%= form.text_field :name, class: "signupInput" %>
-          </div>
-          <div id="signupPassword" class="signupElement">
-            <%= form.label :password %>
-            <%= form.password_field :password, id: "signupPasswordInput", class: "signupInput" %>
-          </div>
-          <div id="signupPasswordConfirm" class="signupElement">
-            <%= form.label :password_confirmation %>
-            <%= form.password_field :password_confirmation, id: "signupPasswordConfirmInput", class: "signupInput" %>
-          </div>
-          <div id="signupSubmit" class="signupElement">
-						<button type="button" id="signupSubmitButton" class="signupButton">Submit</button> <button type="button" id="signupCancelButton" class="signupButton">Cancel</button>
-            <%= form.submit %>
-					</div
-        </div>
-      <% end %>
-    </div>
+  <%= render 'form', user: @user %>
+  </div>
+</div>

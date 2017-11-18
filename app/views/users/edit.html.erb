@@ -1,0 +1,6 @@
+<%@pagetitle = "Edit User" %>
+<% content_for :specific_css do %>
+  <%= stylesheet_link_tag 'signup', media: 'all' %>
+<% end %>
+<h1>Editing User</h1>
+<%= render 'form', user: @user %>
