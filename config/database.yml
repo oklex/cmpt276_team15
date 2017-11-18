@@ -18,7 +18,8 @@ development:
   pool: 5
   host: localhost
   database: cmpt276_team15
-  passsword:
+  username: pguser
+  password: pg12345
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -33,7 +34,8 @@ test:
   pool: 5
   host: localhost
   database: cmpt276_team15_test
-  password:
+  username: pguser
+  password: pg12345
 
 production:
   adapter: postgresql
@@ -41,4 +43,5 @@ production:
   pool: 5
   host: localhost
   database: cmpt276_team15
-  password:
+  username: pguser
+  password: pg12345

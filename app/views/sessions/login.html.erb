@@ -1,15 +1,36 @@
 <% @page_title = "Login" -%>
-<div id="login_form">
-  <h1>Log in</h1>
-  <div class="flash">
-    <% flash.each do |key, value| %>
-      <%= content_tag :div, value, class: "flash #{key}" %>
-    <% end %>
+<% content_for :specific_css do %>
+  <%= stylesheet_link_tag 'login', media: 'all' %>
+<% end %>
+<div id="loginBody">
+  <div id="loginCenteringDiv"></div>
+  <div id="loginMiddlingDiv"></div>
+  <div id="loginContent">
+    <div class="flash">
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "flash #{key}" %>
+      <% end %>
+    </div>
+    <div id="loginForm">
+      <%= form_tag(:action => 'login_attempt') do %>
+        <div id="loginInnerDiv">
+          <div id="loginUser">
+            Username or Email:
+            <%= text_field_tag(:username_or_email, nil, class: "loginInput") %>
+          </div>
+          <div id="loginPassword">
+            Password:
+            <%= password_field_tag :login_password, nil, class: "loginInput" %>
+          </div>
+          <div id="loginSubmit">
+            <%= submit_tag("Login", class: "loginButton") %>
+          </div>
+          <div id="loginWindowLinks">
+            <%= link_to ">Create Account", controller: "users", action: "new" %></br>
+            <a>Forgot Password</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <%= form_tag(:action => 'login_attempt') do %>
-    <p>Username or Email:</br> <%= text_field_tag(:username_or_email) %></p>
-    <p>Password:</br> <%= password_field_tag :login_password %></p>
-    <%= submit_tag("Log In") %>
-  <% end %>
-  <%= link_to "Signup", controller: "users", action: "new" %>
 </div>
