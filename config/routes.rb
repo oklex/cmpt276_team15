@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root :to => "sessions#login"
+  root 'splashscreen#index', :as => 'home'
 
   get 'sessions/login', :to => 'sessions#login'
   post 'sessions/login', :to => 'sessions#login_attempt'
@@ -12,4 +12,5 @@ Rails.application.routes.draw do
       get :settings
     end
   end
+  get 'game', :to => 'game#index'
 end

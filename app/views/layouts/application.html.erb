@@ -3,6 +3,7 @@
   <head>
     <title><%= @page_title =%></title>
     <%= csrf_meta_tags %>
+    <%= yield :specific_js %>
     <%= yield :specific_css %>
   </head>
 
