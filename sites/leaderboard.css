@@ -1,0 +1,76 @@
+body{
+	margin:0px;
+	padding:0px;
+}
+#leaderBoardLeadersDiv{
+	background-color: rgba(77, 77, 77, 1);
+	border-radius: 5px;
+	padding: 10 40 10 40;
+}
+#leaderBoardLeaders{
+	color: rgba(178,178,178, 1);
+	border: 0;
+	border-collapse: collapse;
+	height: 690px;
+	width: 100%;
+}
+.leaderBoardTableRow {
+	border-top: 1pt solid grey;
+}
+.leaderBoardUserID{
+	text-align: left;
+}
+.leaderBoardUserKills{
+	text-align: right;
+}
+.leaderBoardUserScore{
+	text-align: right;
+}
+#leaderBoardWindowLinks{
+	font-size:12px;
+	text-align: right;
+}
+#leaderBoardForm{
+	margin:0px;
+	height:100px;
+	width:100px;
+}
+#leaderBoardInnerDiv{
+	height:710px;
+	width:1310px;
+	background-color:rgba(255, 255, 255, 1);
+	margin:25px;
+	color:rgba(77, 77, 77, 1);
+	padding:20px;
+	line-height: 20px;
+	border-radius: 10px;
+}
+#leaderBoardContent{
+	height:800px;
+	width:1400px;
+	background-color: rgba(77, 77, 77, 1);
+	float: left;
+	border-radius: 10px;
+}
+#leaderBoardMiddlingDiv{
+	width: -moz-calc(50% - 700px);
+	width: -webkit-calc(50% - 700px);
+	width: -o-calc(50% - 700px);
+	width: calc(50% - 700px);
+	height:800px;
+	float: left;
+}
+#leaderBoardCenteringDiv{
+	height: -moz-calc(50% - 400px);
+	height: -webkit-calc(50% - 400px);
+	height: -o-calc(50% - 400px);
+	height: calc(50% - 400px);
+	width:100%;
+	float:left;
+}
+#leaderBoardBody{
+	height: 100%;
+	width: 100%;
+	font-family: arial;
+	background-color: rgba(0,0,0,0.3);
+}
