@@ -15,3 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( login.css )
 Rails.application.config.assets.precompile += %w( signup.css )
+Rails.application.config.assets.precompile += %w( splashscreen.css )
+Rails.application.config.assets.precompile += %w( game.css )
