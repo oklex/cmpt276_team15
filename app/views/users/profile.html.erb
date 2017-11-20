@@ -1,5 +1,6 @@
 <h1>Users#profile</h1>
 <p>Hello <%= @current_user[:name] %></p>
 <% if (@current_user[:admin]) %>
-  <p><%= link_to 'index', users_path %></p>
+  <%= link_to 'Index', users_path %> |
 <% end %>
+<%= link_to 'Logout', sessions_logout_path %>

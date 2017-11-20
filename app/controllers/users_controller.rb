@@ -11,15 +11,13 @@ class UsersController < ApplicationController
     end
   end
 
-  #GET/users/edit
+  #GET/users/:id/edit
   def edit
-    if (session[:user_id].to_s != params[:id])
-      if (!@current_user[:admin])
-        redirect_to(:controller => 'users', :action => 'edit', :id => session[:user_id])
-      else
-        @user = User.find(params[:id])
-        render "edit"
-      end
+    if (session[:user_id].to_s != params[:id] and !@current_user[:admin])
+      redirect_to(:controller => 'users', :action => 'edit', :id => session[:user_id])
+    else
+      @user = User.find(params[:id])
+      render 'edit'
     end
   end
 
