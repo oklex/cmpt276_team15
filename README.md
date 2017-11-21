@@ -2,14 +2,6 @@
 * Group 15's project for CMPT276
 * Members: Alexander, Tyrell, Thu, Aleksandar, Darren
 
-## Iteration 1
-In this iteration, we have created basic user login that shows different view for regular users and admins. We have also included some unit and integration tests for the features detailed in the user stories. We have decided to develop the game separately, due to distinct natures between the tasks, and link together in the end. The game is written with Unity and placed in a different Git repository.
-### User Stories
-The Login page has Signup option at the bottom so that user can choose to either login or signup. When signup, users need to provide username, name, password, password confirmation and email. If username or email is already existed, it will redirect back to signup page with corresponding error message. If the password and password confirmation are not matched, an error message will be display as well. After signup, user will be redirected to login page. User can login with either username or email and they must provide their password. If the user typed in incorrect email/username or password, it will redirect to Login page with corresponding error message. Once login succeeds,  they should be redirected to games home page according to our interface design in the proposal. For this iteration, it will just show user profile page. This will be modified later when the game is more ready. When a user login, he/she can only view his/her profile and cannot go to other users’ profiles by modifying the URL. When users logout, they will be redirected to login page.
-
-Admin user will need to signup and login just like regular user except for a few things. When admin users login, they should be redirected to page that has different view from regular user. For this iteration, it will show the user profile page, and line “Be careful! You are acting as an admin!” if the user is admin. This will be modified later so that the admin can have access to the database. Once the admin has access to and can modify database, he or she can set a user to admin and perform other tasks. There is one admin in which is manually set in the database for the demo. The admin username is: "admin" and password is: "AdminP@ssw0rd".
-
-
 ## Project Abstract
 The game, (temporarily named) "It has to do with Elements and Stuff" is a web application game. The game will be a 2 dimensional twin stick shooter, and while it is meant to be played on a computer, it will also support APIs for plugging in an old video game controller to use and play with and facebook APIs to share stats with friends (and encourage them to join). In the game itself, the player entity will be able to move around on a 2d map using elemental projectiles to combat different types of enemies - each with unique resistances and weaknesses. Live multiplayer co-operative modes will be allowed.  By playing more and winning achievements, players will collect points. They will be able to use the in-game currency to purchase additional abilities, upgrades, and gear. The game, will be fun to play in short rounds, or marathons, with friends, or alone. Collecting and purchasing different items will also be a core feature of the game that encourages players to keep playing. Player accounts will track their purchases (upgrades, abilities, gear), their top scores, leaderboards, statistics, achievements, and friends list.
 
@@ -24,10 +16,79 @@ Our game is web app; therefore, it is freely available to anyone who has access 
 We believe that the above strategies will make our web game competitive. The global games market is projected with healthy growth of 6.2% in the period from 2016 to 2020 (newzoo, 2017). In this scope of our project, we will focus on building a web app game. However, with the possibility of moving to mobile platform, this app has huge potential to catch up with the mobile trend in the future.
 
 ## User Stories
+### Project Proposal
 Jacky has been really stressed out about his upcoming midterm tomorrow, he’s been studying for 5 straight hours and is ready to take a break. With feelings of self-doubt creeping in, he wants to do something fun without shutting down his brain. He decides to start up (temporarily named) “It has to do with Elements and Stuff”  his new favourite game. Jacky presses “Play Now” and the game fires up its vicious AI scripts as it sends waves of varied enemies hurdling at him. As Jacky takes the final killing blow to his character he’s presented with a screen that tells him he’s reached a new highscore, propelling him to 6th on the leaderboards! He’s also finally earned the “Reach 1,000,000 Points in a Single Game Achievement” that he’s been striving to achieve for oh so long. This rush of dopamine and adrenaline was exactly the boost he needed to reinvigorate his confidence heading into another 3 hours of studying. With the share to Facebook button, we as developers will get closure in knowing we’ve helped out a fellow student when we see the facebook post from Jacky about his new highscore and pumped of confidence heading into the exam tomorrow.
 
-
 John is the administrator of the (temporarily named) “It has to do with Elements and Stuff”. Regularly, he logins and checks his chatbox messages from other regular users addressing any issues they may have. For example, users’ information is not record accurately. As an administrator, he can access to individual account to manually review and update user information such as status, scores, assets, achievements, etc. Sometimes, he needs to resolve conflicts between users. For examples, some users may use offensive language while communicating with other users. John then can review the chatbox transcripts and decide if he should ban users by removing their account. If there is a bug that causes uneven score distribution when players play in multiplayer mode, John can cross-check to the database to resolve any inconsistent issues. Occasionally, John can put the games into maintenance mode if there are any updates or bug fixing needed to be done.
+
+### Iteration 1
+Description: Signup and login for regular user
+Actor/Personas: regular user Chris
+Preconditions/Triggers: Chris want to play the game but when go to the page, it prompt him to sign in page before he can play the game. Since he doesn’t have account, he signup first.
+Postconditions:
+When signup, Chris need to provide username, name, password, password confirmation and email. If username or email is already existed, it will redirect back to signup page with corresponding error message. If the password and password confirmation are not matched, an error message will be display as well.
+
+After signup, Chris will be redirected to login page. If Chris typed in incorrect email/username or password, it will redirect to Login page with corresponding error message. Once login success,  it should be redirected to games home page according to our interface design in the proposal.  
+
+When Chris login, he/she can only view his/her profile and cannot go to other users’ profiles by modifying the URL.
+
+When Chris logout, he will be redirected to login page.
+
+Description: Admin profile  page is different from regular users
+Actor/personas: John is admin of the web app
+Precondition/Trigger: John need to login just like other users to play game and perform admin task
+Postconditions/Actions:
+When admin users login, he should be redirected to admin profile that has different view from regular user. He has access to all user lists by clicking on the “index” link.
+
+NOTE: There is one admin in which is manually set in the database for the demo. The admin username is: ‘admin’ and password is: ‘AdminP@ssw0rd’.
+
+### Iteration 2
+Description: Update user information
+Actors/personas: regular user (Steve)
+Precondition and Triggers:
+Steve recognizes that it has been 1 year since she graduated from university and his school email will soon be revoked. Steve want to update his profile with different email address.
+Actions/ Postcondition:
+Steve goes to the web app and choose “Settings". He updates his account with the new email address
+
+Description: Assign a user as an admin
+Actors/personas: John is the administrator
+Precondition/ Triggers:
+John cannot perform administrative role in a period. He want to set someone else as admin.
+Actions/ Postconditions:
+After logging in, John can see the list of all users by clicking on “Index". John finds Steve among the users and see that she is not an admin yet. John then click on “Edit” and set Steve as user then choose “update user". After that, John is redirected back to User index page and see that his change is successfully saved.
+
+Description: Single player game play
+Actor/personas: Bob is a student and regular user
+Precondition/ Triggers:
+Swamped student Bob is looking to unwind for a bit
+Action/ Postconditions:
+Bob loads the game in webpage, and decides to play a single player game. He can choose one of 5 elements to use to defeat waves of enemies. Every element is strong against one of the other elements, i.e. water beats fire.
+Bob can:
+	-start the game by pressing the spacebar
+	-play again when he loses by pressing the R key
+-move around with WASD
+-move the mouse around to aim at enemies
+-shoot projectiles at enemies to kill them with the left mouse button
+-Use the F key, 1 2 3 4 5 keys, or mouse scroll wheel to cycle through elemental    projectiles
+Bob cannot:
+-leave the boundaries of the level otherwise he will lose
+-continue his current game after getting hit four times; his score will be reset upon playing again
+After playing the game for a bit, Bob has reached a new high score and is satisfied with his relaxation time going into this game.
+(The animations are not all complete for this iteration)
+## Velocity
+User login, logout, signup
+3
+Admin has different profile page
+1
+User update their own information
+1
+Admin can see list of user and update other users' information
+1
+Single player game with animation
+8
+
+Each point is approximately half day of works (4 hours). For iteration 2, there are total 10 story points completing in 2 weeks by a team of 5 people. Comparing to iteration 1, there is increasing in velocity.
+
 
 ## User interface requirements
 There will be five main user interface pages in this game.
