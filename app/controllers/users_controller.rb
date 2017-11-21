@@ -40,16 +40,14 @@ class UsersController < ApplicationController
 
   #PATCH/PUT /users/1
   def update
-    respond_to do |format|
-      if (session[:user_id].to_s != params[:id])
-        if (!@current_user[:admin])
-          format.html {render :edit}
-        else
-          @user = User.find(params[:id])
-          if @user.update(user_params)
-            format.html {redirect_to :controller => 'users', :action => 'index', notice: 'User was successfully updated.'}
-          end
-        end
+    if (session[:user_id].to_s != params[:id] && !@current_user[:admin])
+      render :edit
+    else
+      @user = User.find(params[:id])
+      if @user.update(user_params)
+        redirect_to :controller => 'users', :action => 'index', notice: 'User was successfully updated.'
+      else
+        render :edit
       end
     end
   end

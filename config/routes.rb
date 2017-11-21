@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'sessions/login', :to => 'sessions#login_attempt'
   get 'sessions/logout', :to => 'sessions#logout'
 
-  resources :users, only: [:new, :create, :edit, :update, :index, :destroy] do
+  resources :users, defaults: { format: 'html' }, only: [:new, :create, :edit, :update, :index, :destroy] do
     member do
       get :profile
       get :settings
