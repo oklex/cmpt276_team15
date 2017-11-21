@@ -75,17 +75,15 @@ Bob cannot:
 -continue his current game after getting hit four times; his score will be reset upon playing again
 After playing the game for a bit, Bob has reached a new high score and is satisfied with his relaxation time going into this game.
 (The animations are not all complete for this iteration)
+
 ## Velocity
-User login, logout, signup
-3
-Admin has different profile page
-1
-User update their own information
-1
-Admin can see list of user and update other users' information
-1
-Single player game with animation
-8
+| Stories | Story points |
+| ----------- |-------------|
+| User login, logout, signup | 3 |
+| Admin has different profile page | 1 |
+| User update their own information | 1 |
+| Admin can see list of user and update other users' information | 1 |
+| Single player game with animation | 8 |
 
 Each point is approximately half day of works (4 hours). For iteration 2, there are total 10 story points completing in 2 weeks by a team of 5 people. Comparing to iteration 1, there is increasing in velocity.
 
