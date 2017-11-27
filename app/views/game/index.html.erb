@@ -1,0 +1,32 @@
+<% @page_title = "Game" %>
+<% @body_class = "template" %>
+<% content_for :specific_css do %>
+  <%= stylesheet_link_tag 'unitygame', media: 'all' %>
+<% end %>
+<% content_for :specific_js do %>
+  <%= javascript_include_tag 'UnityProgress' %>
+<% end %>
+<div class="template-wrap clear">
+  <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+  <br>
+  <div class="logo"></div>
+  <div class="fullscreen">
+    <%= image_tag 'fullscreen.png', size: '38', alt: 'Fullscreen', onClick: 'SetFullscreen(1);' %>
+  </div>
+  <div class="title">Bender</div>
+</div>
+<script type='text/javascript'>
+var Module = {
+  TOTAL_MEMORY: 268435456,
+  errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+  compatibilitycheck: null,
+  backgroundColor: "#222C36",
+  splashStyle: "Light",
+  dataUrl: "<%= asset_path 'Bender_v1.data' %>",
+  codeUrl: "<%= asset_path 'UnityEngine.js' %>",
+  asmUrl: "<%= asset_path 'UnityEngine.asm.js' %>",
+  memUrl: "<%= asset_path 'UnityEngine.mem' %>",
+  dynamicLibraries: ["<%= asset_path 'Bender_v1.js' %>"],
+};
+</script>
+<%= javascript_include_tag 'UnityLoader' %>

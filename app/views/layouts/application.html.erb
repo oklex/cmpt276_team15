@@ -6,8 +6,11 @@
     <%= yield :specific_js %>
     <%= yield :specific_css %>
   </head>
-
+<% if @body_class.present? %>
+  <body class="<%= @body_class %>">
+<% else %>
   <body>
+<% end %>
     <%= yield %>
   </body>
 </html>
