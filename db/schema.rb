@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20171105043112) do
     t.integer "total_points", default: 0
     t.integer "max_points", default: 0
     t.integer "entities_killed", default: 0
+    t.integer "projectiles_fired", default: 0
+    t.integer "accuracy", default: 0
   end
 
 end
