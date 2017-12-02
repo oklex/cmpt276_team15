@@ -3,8 +3,4 @@
 <% if (@current_user[:admin]) %>
   <%= link_to 'Index', users_path %> |
 <% end %>
-
-<p> You've played <%= total_duration %> so far with a total of <%= total_points %> points and <%= entities_killed %> enemies killed! </p>
-<p> Your longest game was <%= longest_duration %> with <%= max_points %>! </p>
-
 <%= link_to 'Logout', sessions_logout_path %>

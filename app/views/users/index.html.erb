@@ -9,8 +9,6 @@
       <th> User Name </th>
       <th> Name </th>
       <th> Email </th>
-      <th> Max Points </th>
-      <th> Max Duration </th>
       <th colspan = "2"> Admin </th>
     </tr>
   </thead>
@@ -21,8 +19,6 @@
         <td><%= user.username %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.max_points %></td>
-        <td><%= user.longest_duration %></td>
         <td><%= user.admin %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
       </tr>

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if (!@current_user[:admin])
       redirect_to(:controller => 'users', :action => 'profile', :id => session[:user_id])
     else
-      @users = User.all (:order => 'max_points DESC')
+      @users = User.all
     end
   end
 
@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   # GET /users/:id/profile
   def profile
     if (session[:user_id].to_s != params[:id])
-      redirect_to(:controller => 'users', :action => 'profile', :id => session[:user_id], :order => 'max_points DESC')
+      redirect_to(:controller => 'users', :action => 'profile', :id => session[:user_id])
     else
       render "profile"
     end
