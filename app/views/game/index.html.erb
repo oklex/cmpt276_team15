@@ -22,11 +22,11 @@ var Module = {
   compatibilitycheck: null,
   backgroundColor: "#222C36",
   splashStyle: "Light",
-  dataUrl: "<%= asset_path 'Bender_v1.data' %>",
-  codeUrl: "<%= asset_path 'UnityEngine.js' %>",
-  asmUrl: "<%= asset_path 'UnityEngine.asm.js' %>",
-  memUrl: "<%= asset_path 'UnityEngine.mem' %>",
-  dynamicLibraries: ["<%= asset_path 'Bender_v1.js' %>"],
+  dataUrl: "/unitygame/TemplateData/Bender_v1.data",
+  codeUrl: "/unitygame/UnityEngine.js",
+  asmUrl: "/unitygame/UnityEngine.asm.js",
+  memUrl: "/unitygame/TemplateData/UnityEngine.mem",
+  dynamicLibraries: ["/unitygame/Bender_v1.js"],
 };
 </script>
-<%= javascript_include_tag 'UnityLoader' %>
+<%= javascript_include_tag '/unitygame/UnityLoader.js' %>
