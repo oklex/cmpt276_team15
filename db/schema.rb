@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20171105043112) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 
-    t.integer "total_duration", default: 0
-    t.integer "longest_duration", default: 0
-    t.integer "total_points", default: 0
-    t.integer "max_points", default: 0
-    t.integer "entities_killed", default: 0
+    t.integer "total_duration"
+    t.integer "longest_duration"
+    t.integer "total_points"
+    t.integer "max_points"
+    t.integer "entities_killed"
   end
 
 end
