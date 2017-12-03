@@ -1,17 +1,17 @@
 <% @page_title = "Game" %>
 <% @body_class = "template" %>
 <% content_for :specific_css do %>
-  <%= stylesheet_link_tag 'unitygame', media: 'all' %>
+  <%= stylesheet_link_tag '/TemplateData/style.css', media: 'all' %>
 <% end %>
 <% content_for :specific_js do %>
-  <%= javascript_include_tag 'UnityProgress' %>
+  <%= javascript_include_tag '/TemplateData/UnityProgress.js' %>
 <% end %>
 <div class="template-wrap clear">
   <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
   <br>
   <div class="logo"></div>
   <div class="fullscreen">
-    <%= image_tag 'fullscreen.png', size: '38', alt: 'Fullscreen', onClick: 'SetFullscreen(1);' %>
+    <%= image_tag '/TemplateData/fullscreen.png', size: '38', alt: 'Fullscreen', onClick: 'SetFullscreen(1);' %>
   </div>
   <div class="title">Bender</div>
 </div>
@@ -22,11 +22,10 @@ var Module = {
   compatibilitycheck: null,
   backgroundColor: "#222C36",
   splashStyle: "Light",
-  dataUrl: "/unitygame/TemplateData/Bender_v1.data",
-  codeUrl: "/unitygame/UnityEngine.js",
-  asmUrl: "/unitygame/UnityEngine.asm.js",
-  memUrl: "/unitygame/TemplateData/UnityEngine.mem",
-  dynamicLibraries: ["/unitygame/Bender_v1.js"],
+  dataUrl: "/Release/Bender_v1_Release.data",
+  codeUrl: "/Release/Bender_v1_Release.js",
+  asmUrl: "/Release/Bender_v1_Release.asm.js",
+  memUrl: "/Release/Bender_v1_Release.mem",
 };
 </script>
-<%= javascript_include_tag '/unitygame/UnityLoader.js' %>
+<%= javascript_include_tag '/Release/UnityLoader.js' %>
