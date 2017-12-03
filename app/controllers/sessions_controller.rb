@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     authorized_user = User.authenticate(params[:username_or_email], params[:login_password])
     if authorized_user
       session[:user_id] = authorized_user.id
+      session[:gg_user] = false
       redirect_to(:controller => 'splashscreen', :action => 'index')
     else
       flash[:notice] = "Invalid username or password."
@@ -25,11 +26,13 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: user_params[:email])
     if @user.present?
       session[:user_id] = @user.id
+      session[:gg_user] = true
       redirect_to(:controller => 'splashscreen', :action => 'index')
     else
       @user = User.create(:email => user_params[:email], :username => user_params[:email], :name => user_params[:name], :gguser => true)
       if @user.save
         session[:user_id] = @user.id
+        session[:gg_user] = true
         redirect_to(:controller => 'splashscreen', :action => 'index')
       else
         flash[:notice] = "Failed to login with Google. Please create an account with us."
@@ -41,7 +44,13 @@ class SessionsController < ApplicationController
   # GET /sessions/logout
   def logout
     session[:user_id] = nil
-    redirect_to :action => 'login'
+    if session[:gg_user]
+      session[:gg_user] = nil
+      render "logout"
+    else
+      session[:gg_user] = nil
+      redirect_to :action => 'login'
+    end
     flash.discard
   end
 end
