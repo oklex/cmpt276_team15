@@ -2,6 +2,16 @@
 <% content_for :specific_css do %>
   <%= stylesheet_link_tag 'login', media: 'all' %>
 <% end %>
+<% content_for :specific_js do %>
+  <script type="text/javascript">
+  function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    document.getElementById("ggUserName").value = profile.getName();
+    document.getElementById("ggUserEmail").value = profile.getEmail();
+    document.getElementById("loginGGSubmit").click();
+  }
+  </script>
+<% end %>
 <div id="loginBody">
   <div id="loginCenteringDiv"></div>
   <div id="loginMiddlingDiv"></div>
@@ -25,11 +35,18 @@
           <div id="loginSubmit">
             <%= submit_tag("Login", class: "loginButton") %>
           </div>
+          <div class="g-signin2" data-onsuccess="onSignIn"></div>
           <div id="loginWindowLinks">
             <%= link_to ">Create Account", controller: "users", action: "new" %></br>
-            <a>Forgot Password</a>
           </div>
         </div>
+      <% end %>
+    </div>
+    <div id="loginWithGoogleForm" style="display:none;">
+      <%= form_tag(:action => 'login_google') do %>
+        <%= hidden_field(:user, :name, {:id => :ggUserName}) %>
+        <%= hidden_field(:user, :email, {:id => :ggUserEmail}) %>
+        <%= submit_tag("Login", id: "loginGGSubmit") %>
       <% end %>
     </div>
   </div>

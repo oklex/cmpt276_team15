@@ -19,6 +19,25 @@ class SessionsController < ApplicationController
     end
   end
 
+  #POST/sessions/login_with_google
+  def login_google
+    user_params = params.require(:user).permit(:name, :email)
+    @user = User.find_by(email: user_params[:email])
+    if @user.present?
+      session[:user_id] = @user.id
+      redirect_to(:controller => 'splashscreen', :action => 'index')
+    else
+      @user = User.create(:email => user_params[:email], :username => user_params[:email], :name => user_params[:name], :gguser => true)
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to(:controller => 'splashscreen', :action => 'index')
+      else
+        flash[:notice] = "Failed to login with Google. Please create an account with us."
+        redirect_to(:controller => 'users', :action => 'new')
+      end
+    end
+  end
+
   # GET /sessions/logout
   def logout
     session[:user_id] = nil

@@ -1,12 +1,12 @@
 class User < ApplicationRecord
-  attr_accessor :password
+  attr_accessor :password, :gguser
 
   EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
   validates :email, :presence => true, :uniqueness => true, format: { :with => EMAIL_REGEX }
-  validates :password, :confirmation => true, :on => :create #password_confirmation attr
-  validates_length_of :password, :in => 6..20, :on => :create
+  validates :password, :confirmation => true, :on => :create, unless: :gguser #password_confirmation attr
+  validates_length_of :password, :in => 6..20, :on => :create, unless: :gguser
 
   before_save :encrypt_password
   after_save :clear_password
