@@ -22,7 +22,7 @@
           <button onclick="window.location.href='<%= profile_user_path(@current_user.id) %>'" type="button" id="splashScreenProfile" class="splashScreenButton">Profile</button>
         </div>
         <div id="splashScreenButtonDiv">
-          <button onclick="window.location.href='<%= settings_user_path(@current_user.id) %>'" type="button" id="splashScreenSettings" class="splashScreenButton">Settings</button>
+          <button onclick="window.location.href='<%= edit_user_path(@current_user.id) %>'" type="button" id="splashScreenSettings" class="splashScreenButton">Settings</button>
         </div>
         <% end %>
       </div>
