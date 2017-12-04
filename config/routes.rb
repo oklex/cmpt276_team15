@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     end
   end
   get 'game', :to => 'game#index'
+  get 'game/leaderboard', :to => 'game#leaderboard'
 end

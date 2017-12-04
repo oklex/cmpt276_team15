@@ -15,7 +15,7 @@
           <button onclick="window.location.href='<%= game_path %>'" type="button" id="splashScreenPlayGame" class="splashScreenButton">Play Game</button>
         </div>
         <div id="splashScreenButtonDiv">
-          <button type="button" id="splashScreenLeaderboard" class="splashScreenButton">Leaderboard</button>
+          <button onclick="window.location.href='<%=game_leaderboard_path%>'" type="button" id="splashScreenLeaderboard" class="splashScreenButton">Leaderboard</button>
         </div>
         <% if @current_user.present? %>
         <div id="splashScreenButtonDiv">
@@ -23,6 +23,9 @@
         </div>
         <div id="splashScreenButtonDiv">
           <button onclick="window.location.href='<%= edit_user_path(@current_user.id) %>'" type="button" id="splashScreenSettings" class="splashScreenButton">Settings</button>
+        </div>
+        <div id="splashScreenButtonDiv">
+          <button onclick="window.location.href='<%= sessions_logout_path(@current_user.id) %>'" type="button" id="splashScreenSettings" class="splashScreenButton">Log Out</button>
         </div>
         <% end %>
       </div>

@@ -3,4 +3,8 @@ class GameController <ApplicationController
 
   def index
   end
+
+  def leaderboard
+  end
+  
 end
