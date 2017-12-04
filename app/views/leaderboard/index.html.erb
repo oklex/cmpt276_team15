@@ -1,0 +1,36 @@
+<% @page_title ="leaderboard" -%>
+<% content_for :specific_css do %>
+<% stylesheet_link_tag 'leaderboard', media: 'all' %>
+<% end %>
+<div id="leaderBoardBody">
+	<div id="leaderBoardCenteringDiv"></div>
+	<div id="leaderBoardMiddlingDiv"></div>
+	<div id="leaderBoardContent">
+		<form id="leaderBoardForm">
+			<div id="leaderBoardInnerDiv">
+				<div id="leaderBoardHeader">
+					<img id="leaderBoardHeaderImage">
+				</div>
+				<div id="leaderBoardLeadersDiv">
+					<table id="leaderBoardLeaders">
+						<thead>
+							<tr style="height:40;">
+								<th style="width:50%; text-align: left;">User ID</th>
+								<th style="width:25%; text-align: right;">Killed Enemies</th>
+								<th style="width:25%; text-align: right;">Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @users.each do |user| %>
+								<tr class="leaderBoardTableRow" id="1">
+									<td class="leaderBoardUserID"><%= user.username %></td>
+									<td class="leaderBoardUserKills"><%= user.enemies_killed %></td>
+									<td class="leaderBoardUserScore"><%= user.total_points %></td>
+								</tr>
+							<% end %>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
