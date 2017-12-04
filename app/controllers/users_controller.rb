@@ -76,6 +76,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :email, :name, :admin)
+      params.require(:user).permit(:username, :password, :password_confirmation, :email, :name, :admin,
+                  :total_duration, :longest_duration, :total_points, :max_points, :enemies_killed, :projectiles_fired, :accuracy)
     end
 end
