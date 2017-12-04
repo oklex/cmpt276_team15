@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   post 'sessions/login', :to => 'sessions#login_attempt'
   get 'sessions/logout', :to => 'sessions#logout'
   post 'sessions/login_with_google', :to =>'sessions#login_google'
-  post 'games', :to=>'users#update'
 
   resources :users, defaults: { format: 'html' }, only: [:new, :create, :edit, :update, :index, :destroy] do
     member do

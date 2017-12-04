@@ -6,12 +6,18 @@
 <% content_for :specific_js do %>
   <%= javascript_include_tag '/TemplateData/UnityProgress.js' %>
   <script type="text/javascript">
-  function onEndGame(gT, s, k, sF, sH) {
+  function stats(gT, s, k, sF, sH) {
     document.getElementById("duration").value = gT;
     document.getElementById("score").value = s;
-    document.getElementById("score").value = k;
-    document.getElementById("score").value = sF;
-    document.getElementById("score").value = sH;
+    document.getElementById("enemies").value = k;
+    document.getElementById("shot").value = sF;
+    document.getElementById("hit").value = sH;
+    if (gT > <%= @current_user[:longest_duration] %>) {
+      document.getElementById("longest_duration").value = gT;
+    }
+    if (s > <%= @current_user[:max_points] %>) {
+      document.getElementById("max_points").value = s;
+    }
     document.getElementById("statsSubmit").click();
   }
   </script>
@@ -26,9 +32,11 @@
   <div class="title">Bender</div>
 </div>
 <div id="statisticForm" style="display:none;">
-  <%= form_tag(:action => 'update', :controller => 'users') do %>
+  <%= form_tag(user_path(@current_user.id), method: :put) do %>
     <%= hidden_field(:user, :total_duration, {:id => :duration}) %>
-    <%= hidden_field(:user, :total_score, {:id => :score}) %>
+    <%= hidden_field(:user, :longest_duration, {:id => :longest_duration}) %>
+    <%= hidden_field(:user, :max_points, {:id => :max_points}) %>\
+    <%= hidden_field(:user, :total_points, {:id => :score}) %>
     <%= hidden_field(:user, :enemies_killed, {:id => :enemies}) %>
     <%= hidden_field(:user, :projectiles_fired, {:id => :shot}) %>
     <%= hidden_field(:user, :accuracy, {:id => :hit}) %>
