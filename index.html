@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-us">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>Unity WebGL Player | Bender</title>
+      <link rel="stylesheet" href="TemplateData/style.css">
+      <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+      <script src="TemplateData/UnityProgress.js"></script>
+      <script type="text/javascript">
+      function onEndGame(gT, s, k, sF, sH) {
+        document.getElementById("duration").value = gT;
+        document.getElementById("score").value = s;
+        document.getElementById("score").value = k;
+        document.getElementById("score").value = sF;
+        document.getElementById("score").value = sH;
+        document.getElementById("statsSubmit").click();
+      }
+      </script>
+    </head>
+  <body class="template">
+    <div class="template-wrap clear">
+      <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>
+      <br>
+      <div class="logo"></div>
+      <div class="fullscreen">
+        <%= image_tag '/TemplateData/fullscreen.png', size: '38', alt: 'Fullscreen', onClick: 'SetFullscreen(1);' %>
+      </div>
+      <div class="title">Bender</div>
+    </div>
+    <div id="statisticForm" style="display:none;">
+      <%= form_tag(:action => 'update', :controller => 'users') do %>
+        <%= hidden_field(:user, :total_duration, {:id => :duration}) %>
+        <%= hidden_field(:user, :total_score, {:id => :score}) %>
+        <%= hidden_field(:user, :enemies_killed, {:id => :enemies}) %>
+        <%= hidden_field(:user, :projectiles_fired, {:id => :shot}) %>
+        <%= hidden_field(:user, :accuracy, {:id => :hit}) %>
+        <%= submit_tag("Update", id: "statsSubmit") %>
+      <% end %>
+    </div>
+    <script type='text/javascript'>
+    var Module = {
+      TOTAL_MEMORY: 268435456,
+      errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+      compatibilitycheck: null,
+      backgroundColor: "#222C36",
+      splashStyle: "Light",
+      dataUrl: "/Release/Bender_v1_Release.data",
+      codeUrl: "/Release/Bender_v1_Release.js",
+      asmUrl: "/Release/Bender_v1_Release.asm.js",
+      memUrl: "/Release/Bender_v1_Release.mem"
+    };
+    </script>
+    <%= javascript_include_tag '/Release/UnityLoader.js' %>
+    <div class="g-plus" data-action="share" data-align="left" data-annotation="inline" data-height="30" data-expandTo="right"></div>
+  </body>
+</html>
