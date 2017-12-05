@@ -2,6 +2,13 @@
 * Group 15's project for CMPT276
 * Members: Alexander, Tyrell, Thu, Aleksandar, Darren
 
+##Administration
+Web app link: https://shielded-everglades-90801.herokuapp.com/
+Git link for web app: https://github.com/thudinh91/cmpt276_team15
+Git link for game: https://github.com/aleksvranjes/Bender
+Admin username: admin
+Admin password: AdminP@ssw0rd
+
 ## Project Abstract
 The game, (temporarily named) "It has to do with Elements and Stuff" is a web application game. The game will be a 2 dimensional twin stick shooter, and while it is meant to be played on a computer, it will also support APIs for plugging in an old video game controller to use and play with and facebook APIs to share stats with friends (and encourage them to join). In the game itself, the player entity will be able to move around on a 2d map using elemental projectiles to combat different types of enemies - each with unique resistances and weaknesses. Live multiplayer co-operative modes will be allowed.  By playing more and winning achievements, players will collect points. They will be able to use the in-game currency to purchase additional abilities, upgrades, and gear. The game, will be fun to play in short rounds, or marathons, with friends, or alone. Collecting and purchasing different items will also be a core feature of the game that encourages players to keep playing. Player accounts will track their purchases (upgrades, abilities, gear), their top scores, leaderboards, statistics, achievements, and friends list.
 
@@ -76,6 +83,63 @@ Bob cannot:
 After playing the game for a bit, Bob has reached a new high score and is satisfied with his relaxation time going into this game.
 (The animations are not all complete for this iteration)
 
+###Iteration 3:
+Description: Login/logout with Google API
+Actor/persona: Wilson is a potential user without account created.
+Precondition/trigger:
+Wilson want to try the game after hearing about it from his game. However, he finds that creating an account before actually playing game is burdensome.
+Postcondition:
+Wilson go to the web app and finds that he can use Google account to log in. He clicks the sign in with Google logo button and sign in with his Google account. After that, he is redirected to the menu page, clicks play game and can play the game. After finishing the game, Wilson go back to main menu and click logout. He then logout from our web app without logging out his Google account.
+Velocity discussion:
+At first, research has been done for Facebook API as proposed but then it is found that Google API may be simpler to implement. The user story was assigned 2 points (each point is approximately 4 hours working), with 1 point on researching the way to do it and registering the app with Google. Another point for getting Javascript code provided by Google, modifying it to submit a hidden form with email and name to session controller with method called login_google to handle these information. This method check if user exists in the database by email and login with existing account or create a new account for first time user.
+
+Description: Share web app link on Google Plus with Google API
+Actor/persona: Wilson is a user who is very active on his Google Plus.
+Precondition/trigger:
+After finishing a match of Geomancer, Wilson feels so great that he needs to let everyone in his circle know about this amazing game
+Postcondition:
+Wilson finds the Google share button at top left of the game page. He clicks on the share button and it prompt him to Google sign in if he has not done that already. After signing in with Google, he see a post compiled with the link to Geomancer app ready to be posted on his Google Plus.
+Velocity discussion: This feature was implemented after the login/logout with Google API. It takes approximately 2 hours for research  and another 2 hours to implement and debug so total is equivalent to 1 story point.
+
+Description: Save user's game statistic to database and display it on profile
+Actor/persona: Bob is a enthusiastic user and love to review his accomplishment even in playing game
+Precondition/trigger: After a Geomancer match, Bob would like to see more information about his match aside of the points.
+Postcondition: Bob goes to his profile page and sees the following statistics displayed: last game duration, lastest points (points of his last game), enemies killed (in last game), projectiles fired (how many shots made in last game) and accuracy (total shots that actually hit the enemies in last game).
+Velocity discussion:
+This feature was implemented by keeping track of variables in Unity and passing those values into JavaScript, and then the database. It took 8 story points to implement this process. All the team members spend approximately a day to figure out how to pass the information from Unity game to Rails by JavaScript. It is basically a JavaScript code that embedded into the game saving all the necessary information and pass it to a JavaScript function in the game index html page. This function submit a http request to Rails user_controller with update method that handle the information. This is the most critical part in both profile and leaderboard so each story get 5 points. 3 points are for coding and debugging the ideas.
+
+Description: implementation of leaderboard
+Actor/personas: Bob is an ambitious users and loves to see how he performed in the game comparing to other players
+Precondition/ triggers:
+After a Geomancer match, Bob would like to see how he stacks up compared to others who play Geomancer.
+Action/ postconditions:
+Bob goes to the leaderboard and sees the following statistics displayed: number of enemies killed (last game), and score (last game). He is happy to see  that he makes to the leaderboard.
+Velocity discussion:
+This feature implemented was worth 8 story points. It takes 5 points as discussed above to figure out how to get the data from Unity to JavaScript to the database. 3 points are for additional controller, view, implement ideas and debug.
+
+Description: Final version of game
+Actor/personas: Bob is a student and regular user
+Precondition/ Triggers:
+Swamped student Bob is looking to unwind for a bit
+Action/ Postconditions:
+Bob loads the game in webpage, and decides to play a single player game. He can choose one of 5 elements to use to defeat waves of small and big enemies of each elemental type. Small enemies chase you at a fast pace. Big enemies chase you at a bit of a slower pace while also shooting projectiles at you to try and knock you off the stage. Getting hit by these projectiles does not make you lose lives. Every element is strong against one of the other elements: metal beats wood, wood beats earth, earth beats water, water beats fire, fire beats metal. Bob realizes that the game has many more enemies characters with nice animations, comparing to the boring balls or repetitive characters in the earlier versions.
+Bob can:
+	-start the game by pressing the spacebar
+	-play again when he loses by pressing the R key
+-move around with WASD
+-move the mouse around to aim at enemies
+-shoot projectiles at enemies to kill them with the left mouse button
+-Use the F key, 1 2 3 4 5 keys, or mouse scroll wheel to cycle through elemental    projectiles
+-keep track of how many enemies he’s killed by looking at his score
+Bob cannot:
+-leave the boundaries of the level otherwise he will lose
+-continue his current game after getting hit four times; his score will be reset upon playing again
+After playing the game for a bit, Bob has reached a new high score and is satisfied with his relaxation time going into this game.
+Velocity Discussion:
+This part took 5 story points, and included the entire final version of the game with all the animations and functionality.
+
+
+
 ## Velocity
 | Stories | Story points |
 | ----------- |-------------|
@@ -84,6 +148,11 @@ After playing the game for a bit, Bob has reached a new high score and is satisf
 | User update their own information | 1 |
 | Admin can see list of user and update other users' information | 1 |
 | Single player game with animation | 8 |
+| Google Login/logout API | 2 |
+| GooglePlus Share | 1 |
+| Save statistic information from game to database and display on profile | 8 |
+| Implement leaderboard | 8 |
+| Single player game final modifications and all animations | 5 |
 
 Each point is approximately half day of works (4 hours). For iteration 2, there are total 10 story points completing in 2 weeks by a team of 5 people. Comparing to iteration 1, there is increasing in velocity.
 
