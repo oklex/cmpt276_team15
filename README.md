@@ -4,9 +4,13 @@
 
 ## Administration
 Web app link: https://shielded-everglades-90801.herokuapp.com/
+
 Git link for web app: https://github.com/thudinh91/cmpt276_team15
+
 Git link for game: https://github.com/aleksvranjes/Bender
+
 Admin username: admin
+
 Admin password: AdminP@ssw0rd
 
 ## Project Abstract
