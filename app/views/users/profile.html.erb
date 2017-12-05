@@ -8,11 +8,9 @@
 <table>
   <thead>
     <tr>
-      <th> Total Duration </th>
-      <th> Longest Duration </th>
-      <th> Total Points </th>
-      <th> Max Points </th>
-      <th> Enemies Killed </th>
+      <th> Last Game Duration </th>
+      <th> Latest Points </th>
+      <th> Enemies Killed  </th>
       <th> Projectiles Fired </th>
       <th> Accuracy </th>
     </tr>
@@ -21,9 +19,7 @@
   <tbody>
     <tr>
       <td><%= @current_user.total_duration %></td>
-      <td><%= @current_user.longest_duration %></td>
       <td><%= @current_user.total_points %></td>
-      <td><%= @current_user.max_points %></td>
       <td><%= @current_user.enemies_killed %></td>
       <td><%= @current_user.projectiles_fired %></td>
       <td><%= @current_user.accuracy %></td>

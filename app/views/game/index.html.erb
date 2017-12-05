@@ -4,23 +4,23 @@
   <%= stylesheet_link_tag '/TemplateData/style.css', media: 'all' %>
 <% end %>
 <% content_for :specific_js do %>
-  <%= javascript_include_tag '/TemplateData/UnityProgress.js' %>
   <script type="text/javascript">
   function stats(gT, s, k, sF, sH) {
-    document.getElementById("duration").value = gT + <%= @current_user[:total_duration] %>;
-    document.getElementById("score").value = s + <%= @current_user[:total_points] %>;
-    document.getElementById("enemies").value = k + <%= @current_user[:enemies_killed] %>;
-    document.getElementById("shot").value = sF + <%= @current_user[:projectiles_fired] %>;
-    document.getElementById("hit").value = sH + <%= @current_user[:accuracy] %>;
-    if (gT > <%= @current_user[:longest_duration] %>) {
+    document.getElementById("duration").value = gT;
+    document.getElementById("score").value = s;
+    document.getElementById("enemies").value = k;
+    document.getElementById("shot").value = sF;
+    document.getElementById("hit").value = sH;
+    /*if (gT > <%= @current_user[:longest_duration] %>) {
       document.getElementById("longest_duration").value = gT;
     }
     if (s > <%= @current_user[:max_points] %>) {
       document.getElementById("max_points").value = s;
-    }
+    }*/
     document.getElementById("statsSubmit").click();
   }
   </script>
+  <%= javascript_include_tag '/TemplateData/UnityProgress.js' %>
 <% end %>
 <div class="template-wrap clear">
   <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" height="600px" width="960px"></canvas>

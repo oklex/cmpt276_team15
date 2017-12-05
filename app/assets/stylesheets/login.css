@@ -19,8 +19,6 @@ body{
 	border-radius: 5px;
 	height:25px;
 	padding: 2 15 2 15;
-	margin-top: 15px;
-	width: 100%;
 }
 .loginButton:hover{
 	background-color: rgba(178, 178, 178, 1);
@@ -33,6 +31,11 @@ body{
 #loginWindowLinks{
 	font-size:12px;
 	text-align: right;
+}
+#loginSubmit{
+	height: 24px;
+	margin-top: 15px;
+	width: 100%;
 }
 #loginForm{
 	margin:0px;
