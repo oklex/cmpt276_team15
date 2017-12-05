@@ -2,7 +2,7 @@
 * Group 15's project for CMPT276
 * Members: Alexander, Tyrell, Thu, Aleksandar, Darren
 
-##Administration
+## Administration
 Web app link: https://shielded-everglades-90801.herokuapp.com/
 Git link for web app: https://github.com/thudinh91/cmpt276_team15
 Git link for game: https://github.com/aleksvranjes/Bender
