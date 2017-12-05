@@ -7,11 +7,11 @@
   <%= javascript_include_tag '/TemplateData/UnityProgress.js' %>
   <script type="text/javascript">
   function stats(gT, s, k, sF, sH) {
-    document.getElementById("duration").value = gT;
-    document.getElementById("score").value = s;
-    document.getElementById("enemies").value = k;
-    document.getElementById("shot").value = sF;
-    document.getElementById("hit").value = sH;
+    document.getElementById("duration").value = gT + <%= @current_user[:total_duration] %>;
+    document.getElementById("score").value = s + <%= @current_user[:total_points] %>;
+    document.getElementById("enemies").value = k + <%= @current_user[:enemies_killed] %>;
+    document.getElementById("shot").value = sF + <%= @current_user[:projectiles_fired] %>;
+    document.getElementById("hit").value = sH + <%= @current_user[:accuracy] %>;
     if (gT > <%= @current_user[:longest_duration] %>) {
       document.getElementById("longest_duration").value = gT;
     }

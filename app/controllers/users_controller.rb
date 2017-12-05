@@ -54,27 +54,18 @@ class UsersController < ApplicationController
       end
       if (user_params[:total_points].present?)
         update_game_score = true
-        user_params[:total_points] =
-              (@user[:total_points].present? ? @user[:total_points] : 0)
-              + user_params[:total_points].to_i
+
       end
       if (user_params[:enemies_killed].present?)
         update_game_score = true
-        user_params[:enemies_killed] =
-              (@user[:enemies_killed].present? ? @user[:enemies_killed] : 0)
-              + user_params[:enemies_killed].to_i
+
       end
       if (user_params[:projectiles_fired].present?)
         update_game_score = true
-        user_params[:projectiles_fired] =
-              (@user[:projectile_fired].present? ? @user[:projectile_fired] : 0)
-              + user_params[:projectiles_fired].to_i
+
       end
       if (user_params[:accuracy].present?)
         update_game_score = true
-        user_params[:accuracy] =
-              (@user[:accuracy].present? ? @user[:accuracy] : 0)
-              + user_params[:accuracy].to_i
       end
 
       if @user.update(user_params)

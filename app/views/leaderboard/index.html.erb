@@ -23,7 +23,7 @@
 						<tbody>
 							<% @users.each do |user| %>
 								<tr class="leaderBoardTableRow" id="1">
-									<td class="leaderBoardUserID"><%= user.username %></td>
+									<td class="leaderBoardUserID"><%= user.name %></td>
 									<td class="leaderBoardUserKills"><%= user.enemies_killed %></td>
 									<td class="leaderBoardUserScore"><%= user.total_points %></td>
 								</tr>
